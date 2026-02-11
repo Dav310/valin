@@ -1,29 +1,37 @@
-const yesBtn = document.getElementById("yesBtn");
-const noBtn = document.getElementById("noBtn");
-const response = document.getElementById("response");
+const yesBtn = document.getElementById('yesBtn')
+const noBtn = document.getElementById('noBtn')
+const response = document.getElementById('response')
 
-function swapToYes(e) {
-  e.preventDefault();
-  noBtn.innerText = "Yes 💘";
-  noBtn.classList.remove("maybe");
-  noBtn.classList.add("yes");
+// no button inital Size
+let noScale = 1;
 
-}
+// Yes button 
+let yesPadding = 12;
+let yesFontSize = 16;
 
-// Touch start 
-noBtn.addEventListener("touchstart", swapToYes);
-// Onclick
-noBtn.addEventListener("click", swapToYes);
+noBtn.addEventListener("click", () => {
+  noScale -= 0.1;
 
-// On Hover
-noBtn.addEventListener("mouseover", () => {
-  const x = Math.random() * 300 - 100;
-  const y = Math.random() * 300 - 100;
+  noBtn.style.transform = `scale(${noScale})`;
 
-  noBtn.style.transform = `translate(${x}px, ${y}px)`;
-});
+  yesPadding += 3;
+  yesFontSize += 2;
 
+  yesBtn.style.fontSize = yesFontSize + "px";
+  yesBtn.style.padding = `${yesPadding}px ${yesPadding * 2}px`;
+
+  if (noScale <= 0.3) {
+    noBtn.style.opacity = "0";
+    noBtn.style.pointerEvents = "none";
+    yesBtn.style.pointerEvents = "none";
+    response.innerText = "See? Only YES was meant to be 💕";
+  }
+
+})
 
 yesBtn.addEventListener("click", () => {
-  response.innerText = "Yay! 💕 You made my day!";
+  response.innerText = ("Yay! 💕 You made my day!")
+  noBtn.style.opacity = "0";
+
+
 })
