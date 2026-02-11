@@ -11,14 +11,14 @@ let yesPadding = 12;
 let yesFontSize = 16;
 
 const questionTexts = [
-  "You’re the best part of my day, every single day. Will you be my Valentine?",
-  "You’re the best part of my day 💕 Will you say yes?",
-  "My heart smiles when I think of you… Be my Valentine?",
+  "Every single day'🌞. Will you be my Valentine💝?",
+  "You’re the best🥳 part of my day 💕 Will you say yes?",
+  "My heart smiles😀 when I think💭 of you… Be my Valentine?",
   "Life feels sweeter with you in it 💘 Say yes?",
   "Every moment with you feels like magic ✨ Will you be my Valentine?",
   "If happiness had a name, it would be yours 💕 Say yes?",
-  "My favorite place is wherever you are… be my Valentine?",
-  "Okay fine… but you know you want to say YES 😉",
+  "You’re not just my choice💓 you’re my happiness… be mine?",
+  
   
 ]
 let questionIndex = 0;
@@ -44,7 +44,7 @@ noBtn.addEventListener("click", () => {
     noBtn.style.opacity = "0";
     noBtn.style.pointerEvents = "none";
     yesBtn.style.pointerEvents = "none";
-    response.innerText = "See? Only YES was meant to be 💕";
+    response.innerText = "Told you… it was always going to be YES 💕";
   }
 
 })
