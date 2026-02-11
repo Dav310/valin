@@ -18,10 +18,26 @@ const questionTexts = [
   "Every moment with you feels like magic ✨ Will you be my Valentine?",
   "If happiness had a name, it would be yours 💕 Say yes?",
   "You’re not just my choice💓 you’re my happiness… be mine?",
-  
-  
 ]
+
+
+
+
 let questionIndex = 0;
+qestions.innerText = questionTexts[questionIndex];
+
+function nextQes() {
+  questionIndex++;
+  if (questionIndex < questionTexts.length) {
+    qestions.innerText = questionTexts[questionIndex];
+  } else {
+    qestions.innerText = "💖 You answered all questions 💖";  
+    response.innerText = "Told you… it was always going to be YES 💕"
+    // yesBtn.style.opacity = "0";  
+    noBtn.style.opacity = "0";
+    noBtn.style.pointerEvents = "none";
+  }
+}
 
 noBtn.addEventListener("click", () => {
   noScale -= 0.1;
@@ -33,25 +49,11 @@ noBtn.addEventListener("click", () => {
 
   yesBtn.style.fontSize = yesFontSize + "px";
   yesBtn.style.padding = `${yesPadding}px ${yesPadding * 2}px`;
-  qestions.innerText = questionTexts[questionIndex];
-  questionIndex++;
-
-  if (questionIndex >= questionTexts.length) {
-    questionIndex = 0;
-  }
-
-  if (noScale <= 0.3) {
-    noBtn.style.opacity = "0";
-    noBtn.style.pointerEvents = "none";
-    yesBtn.style.pointerEvents = "none";
-    response.innerText = "Told you… it was always going to be YES 💕";
-  }
+  nextQes();
 
 })
 
 yesBtn.addEventListener("click", () => {
-  response.innerText = ("Yay! 💕 You made my day!")
-  noBtn.style.opacity = "0";
-
+  nextQes();
 
 })
