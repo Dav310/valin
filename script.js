@@ -1,6 +1,7 @@
 const yesBtn = document.getElementById('yesBtn')
 const noBtn = document.getElementById('noBtn')
 const response = document.getElementById('response')
+const qestions = document.getElementById('qestions')
 
 // no button inital Size
 let noScale = 1;
@@ -8,6 +9,19 @@ let noScale = 1;
 // Yes button 
 let yesPadding = 12;
 let yesFontSize = 16;
+
+const questionTexts = [
+  "You’re the best part of my day, every single day. Will you be my Valentine?",
+  "You’re the best part of my day 💕 Will you say yes?",
+  "My heart smiles when I think of you… Be my Valentine?",
+  "Life feels sweeter with you in it 💘 Say yes?",
+  "Every moment with you feels like magic ✨ Will you be my Valentine?",
+  "If happiness had a name, it would be yours 💕 Say yes?",
+  "My favorite place is wherever you are… be my Valentine?",
+  "Okay fine… but you know you want to say YES 😉",
+  
+]
+let questionIndex = 0;
 
 noBtn.addEventListener("click", () => {
   noScale -= 0.1;
@@ -19,6 +33,12 @@ noBtn.addEventListener("click", () => {
 
   yesBtn.style.fontSize = yesFontSize + "px";
   yesBtn.style.padding = `${yesPadding}px ${yesPadding * 2}px`;
+  qestions.innerText = questionTexts[questionIndex];
+  questionIndex++;
+
+  if (questionIndex >= questionTexts.length) {
+    questionIndex = 0;
+  }
 
   if (noScale <= 0.3) {
     noBtn.style.opacity = "0";
